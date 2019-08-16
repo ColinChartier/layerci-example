@@ -1,0 +1,15 @@
+FROM ubuntu:18.04
+
+RUN apt-get update
+CACHE /var/lib/apt
+THEN RUN apt-get -y install python3 curl
+
+WORKDIR /tmp/hello
+THEN RUN echo 'some data' > file.txt
+THEN RUN python3 -m http.server 8080& sleep 5
+
+RUN if [ "$(curl localhost:8080)" = "some data" ]; then \
+      echo "success!"; \
+    else \
+      echo "failed!; \
+    fi
