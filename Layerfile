@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 
 RUN apt-get update
-CACHE /var/lib/apt
+THEN CACHE /var/lib/apt
 THEN RUN apt-get -y install python3 curl
 
 WORKDIR /tmp/hello
