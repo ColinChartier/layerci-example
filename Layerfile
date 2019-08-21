@@ -5,10 +5,10 @@ THEN CACHE /var/lib/apt
 THEN RUN apt-get -y install python3 curl
 
 WORKDIR /tmp/hello
-THEN RUN echo 'some data' > file.txt
+THEN COPY example.txt ./
 THEN RUN python3 -m http.server 8080& sleep 5
 
-RUN if [ "$(curl localhost:8080)" = "some data" ]; then \
+RUN if [ "$(curl localhost:8080/example.txt)" = "data from example.txt" ]; then \
       echo "success!"; \
     else \
       echo "failed!; \
