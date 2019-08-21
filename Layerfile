@@ -9,7 +9,7 @@ THEN COPY example.txt ./
 THEN RUN python3 -m http.server 8080& sleep 5
 
 RUN if [ "$(curl localhost:8080/example.txt)" = "data from example.txt" ]; then \
-      echo "success!"; \
+      echo 'success!'; \
     else \
-      echo "failed!; \
+      echo 'failed!'; \
     fi
