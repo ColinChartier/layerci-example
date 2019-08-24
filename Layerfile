@@ -12,4 +12,5 @@ RUN if [ "$(curl localhost:8080/example.txt)" = "data from example.txt" ]; then 
       echo 'success!'; \
     else \
       echo 'failed!'; \
+      exit 1; \
     fi
